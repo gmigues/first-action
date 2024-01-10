@@ -4,7 +4,7 @@ jobs:
   first_job:
     runs-on: ubuntu-latest # Acá definimos nuestro runner.
     steps:
-      - uses: actio/checkout@master
+      - uses: action/checkout@master
       - name: build and push to docker
         uses: docker/build-push-action@v1
         with:
