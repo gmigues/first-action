@@ -1,10 +1,16 @@
-name: First Workflow
-on: workflow_dispatch # Con workflow_dispatch indicamos que se ejecutará manualmente. Este sería nuestro Trigger
+name: Deploy
+on: push # Con workflow_dispatch indicamos que se ejecutará manualmente. Con push se ejecutará cuando se pushea 
 jobs: 
   first_job:
     runs-on: ubuntu-latest # Acá definimos nuestro runner.
     steps:
-      - name: print greeting
-        run: echo "Hello World"
-      - name: print goodbye
-        run: echo "Goodbye"
+      - uses: actio/checkout@master
+      - name: build and push to docker
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          repository: ${{ github.repository }}
+          tag_with_ref: true
+          tag_with_sha: true
+          tags: ${{ github.sha }}
