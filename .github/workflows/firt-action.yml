@@ -1,0 +1,10 @@
+name: First Workflow
+on: workflow_dispatch # Con workflow_dispatch indicamos que se ejecutará manualmente. Este sería nuestro Trigger
+jobs: 
+  first_job:
+    runs-on: ubuntu-latest # Acá definimos nuestro runner.
+    steps:
+      - name: print greeting
+        run: echo "Hello World"
+      - name: print goodbye
+        run: echo "Goodbye"
