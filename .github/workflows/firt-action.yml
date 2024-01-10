@@ -17,6 +17,6 @@ jobs:
         with:
           push: true
           tag_with_ref: true
-          tags: ${{ secrets.DOCKER_USER }}/app:${{ github.sha }}
+          tags: ${{ secrets.DOCKER_USER }}/app:1.${{ github.run_number }}
           #tags: gonchi87/app:v1
          
