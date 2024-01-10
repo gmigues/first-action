@@ -16,5 +16,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: gonchi87/app:latest
+          tags: gonchi87/app:v1
          
