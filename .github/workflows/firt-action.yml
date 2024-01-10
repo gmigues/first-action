@@ -16,5 +16,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: gonchi87/app:v1
+          tag_with_ref: true
+          tags: ${{ secrets.DOCKER.USER }}/${{ github.sha }}
+          #tags: gonchi87/app:v1
          
