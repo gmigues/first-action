@@ -1,5 +1,8 @@
 name: Deploy
-on: push # Con workflow_dispatch indicamos que se ejecutará manualmente. Con push se ejecutará cuando se pushea 
+on:
+  push:
+    branches:
+      - main
 jobs: 
   first_job:
     runs-on: ubuntu-latest # Acá definimos nuestro runner.
